@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Todo} from "../app.component";
+import {Component, OnInit} from '@angular/core';
+import {TodosService} from "../shared/todos.service";
 
 @Component({
   selector: 'app-todos', // позволяет использовать app-todos в html
@@ -7,16 +7,12 @@ import {Todo} from "../app.component";
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit { // OnInit - interface for lifecycle hooks
-
-  @Input() todos: Todo[] = [] // принимаем массив с помощью декоратора Input
-  @Output() onToggle = new EventEmitter<number>()
-
-  constructor() { }
+  constructor(public todosService: TodosService) { }
 
   ngOnInit(): void {
   }
 
   onChange(id: number) {
-    this.onToggle.emit(id)
+    this.todosService.onToggle(id)
   }
 }
