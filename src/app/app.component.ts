@@ -21,4 +21,10 @@ export class AppComponent {
     {id: 2, title: 'angular', completed: false, date: new Date()},
     {id: 3, title: 'nx', completed: false, date: new Date()},
   ]
+
+  onToggle(id: number) {
+    console.log(id)
+    const idx = this.todos.findIndex(t => t.id === id)
+    this.todos[idx].completed = !this.todos[idx].completed
+  }
 }
