@@ -15,4 +15,8 @@ export class TodosComponent implements OnInit { // OnInit - interface for lifecy
   onChange(id: number) {
     this.todosService.onToggle(id)
   }
+
+  removeTodo(id: number) {
+    this.todosService.removeTodo(id)
+  }
 }
