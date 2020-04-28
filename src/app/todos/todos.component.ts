@@ -10,6 +10,7 @@ import {TodosService} from "../shared/todos.service";
 export class TodosComponent implements OnInit { // OnInit - interface for lifecycle hooks
 
   public loading: boolean = true
+  private searchString =''
 
   constructor(public todosService: TodosService) { }
 
